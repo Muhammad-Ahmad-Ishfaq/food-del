@@ -8,7 +8,7 @@ import Orders from './pages/Orders/Orders'
 import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
-  const url = "http://localhost:4000"
+  const url = "https://food-del-backend-blond.vercel.app"
   return (
     <div>
       <ToastContainer />
