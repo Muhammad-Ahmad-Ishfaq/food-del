@@ -44,19 +44,19 @@ function PaymentModes() {
 
       try {
         // 1. Update payment mode
-        await axios.post("http://localhost:4000/api/order/payment-mode", {
+        await axios.post("https://food-del-backend-blond.vercel.app/api/order/payment-mode", {
           orderId,
           paymentMode: paymentMethod,
         });
 
         // 2. Update payment details
-        await axios.post("http://localhost:4000/api/order/payment-details", {
+        await axios.post("https://food-del-backend-blond.vercel.app/api/order/payment-details", {
           orderId,
           paymentDetails,
         });
 
         // 3. Update status to Paid
-        await axios.post("http://localhost:4000/api/order/status", {
+        await axios.post("https://food-del-backend-blond.vercel.app/api/order/status", {
           orderId,
           status: "Paid",
         });
