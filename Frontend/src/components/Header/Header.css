@@ -1,0 +1,6 @@
+.header-content{
+    position: absolute;
+  bottom: 10%; /* 36 in Tailwind = 9rem (36/4) */
+  left: 6vw;
+  animation: fadeIn 3s;
+}
