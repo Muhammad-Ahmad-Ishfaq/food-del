@@ -39,7 +39,7 @@ function MyOrders() {
                 delete newTimeouts[order._id];
                 return newTimeouts;
               });
-            }, 1000); // 1 seconds
+            }); // 1 seconds
 
             setPaidOrderTimeouts((prev) => ({ ...prev, [order._id]: timeout }));
           }
