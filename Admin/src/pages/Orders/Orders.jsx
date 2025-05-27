@@ -55,7 +55,7 @@ function Orders({ url }) {
               </p>
 
               {/* Dine-in Attributes */}
-              <p className='order-item-name'>Table No: {order.tableNo || 'N/A'}</p>
+              <p className='order-item-name'>Table No: {order.table || 'N/A'}</p>
               <p className='order-item-name'>Payment Mode: {order.paymentMode || 'N/A'}</p>
             </div>
 
