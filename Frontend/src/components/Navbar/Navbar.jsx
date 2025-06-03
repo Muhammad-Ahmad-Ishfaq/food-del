@@ -84,6 +84,7 @@ function Navbar({ setShowLogin }) {
             href='#footer'
             className={`cursor-pointer ${menu === "contact-us" ? "border-b-2 border-[#49557e] pb-[2px]" : ""}`}
             onClick={() => setMenu("contact-us")}
+            <p>Zainab</p>
           >
             contact us
           </a>
