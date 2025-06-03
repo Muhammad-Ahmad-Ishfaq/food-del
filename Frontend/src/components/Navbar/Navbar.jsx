@@ -20,6 +20,32 @@ function Navbar({ setShowLogin }) {
     setRole(null);
     navigate("/");
   };
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">MySite</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <!-- Existing items -->
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+
+      <!-- ✅ Add new item here -->
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+
+      <!-- ✅ Example of a button -->
+      <li class="nav-item">
+        <a class="btn btn-primary nav-link text-white" href="/login">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 
   return (
     <div className="pt-8 flex justify-between">
