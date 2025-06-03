@@ -30,6 +30,11 @@ function Navbar({ setShowLogin }) {
         <ul className="flex gap-[20px] text-[#49557e] text-[18px]">
           <Link
             to='/'
+            className={`cursor-pointer ${menu === "Habiba" ? "border-b-2 border-[#49557e] pb-[2px]" : ""}`}
+            onClick={() => setMenu("Habiba")}
+          >
+          <Link
+            to='/'
             className={`cursor-pointer ${menu === "home" ? "border-b-2 border-[#49557e] pb-[2px]" : ""}`}
             onClick={() => setMenu("home")}
           >
