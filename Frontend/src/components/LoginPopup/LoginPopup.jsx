@@ -59,6 +59,7 @@ function LoginPopup({ setShowLogin }) {
           {currState === "Login" ? <></> : <input name='name' onChange={onChangeHandler} value={data.name} className='border' type="text" placeholder='Your name' required />}
           <input name='email' onChange={onChangeHandler} value={data.email} className='border' type="email" placeholder='Your email' required />
           <input name='password' onChange={onChangeHandler} value={data.password} className='border' type="password" placeholder='Your password' required />
+          <input placeholder = 'Blank input'/>
         </div>
         <div className='flex justify-center items-center mt-5'>
           <button type='submit' className='p-2 lg:w-80 sm:w-80 border-none text-white bg-[tomato] rounded-[4px]'>
