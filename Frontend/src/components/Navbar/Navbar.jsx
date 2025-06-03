@@ -66,6 +66,7 @@ function Navbar({ setShowLogin }) {
           >
             home
           </Link>
+            <p>Zainab</p>
           <a
             href='#explore-menu'
             className={`cursor-pointer ${menu === "menu" ? "border-b-2 border-[#49557e] pb-[2px]" : ""}`}
