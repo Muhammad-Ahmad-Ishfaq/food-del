@@ -98,6 +98,8 @@ function Navbar({ setShowLogin }) {
                 <hr />
                 <li onClick={logout}>
                   <img src={assets.logout_icon} alt="" />
+                  <p>Zainab</p>
+                  
                   <p>Logout</p>
                 </li>
               </ul>
