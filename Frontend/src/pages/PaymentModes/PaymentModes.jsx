@@ -44,17 +44,17 @@ function PaymentModes() {
       }
 
       try {
-        await axios.post("http://localhost:4000/api/order/payment-mode", {
+        await axios.post("https://food-del-backend-zeta.vercel.app/api/order/payment-mode", {
           orderId,
           paymentMode: paymentMethod,
         });
 
-        await axios.post("http://localhost:4000/api/order/payment-details", {
+        await axios.post("https://food-del-backend-zeta.vercel.app/api/order/payment-details", {
           orderId,
           paymentDetails,
         });
 
-        await axios.post("http://localhost:4000/api/order/status", {
+        await axios.post("https://food-del-backend-zeta.vercel.app/api/order/status", {
           orderId,
           status: "Paid",
         });
