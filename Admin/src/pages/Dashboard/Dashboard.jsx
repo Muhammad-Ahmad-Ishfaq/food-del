@@ -11,7 +11,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:4000/api/order/counts");
+        const { data } = await axios.get("https://food-del-backend-zeta.vercel.app/api/order/counts");
         if (data.success) {
           setCounts(data.data);
         }
