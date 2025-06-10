@@ -1,0 +1,123 @@
+.my-orders {
+  margin: 50px 0;
+  padding: 0 20px;
+  width: 100%; /* Use full width */
+}
+
+.my-orders h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Responsive Grid Layout - 2 per row on large screens */
+.my-orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensures 2 cards per row if space allows */
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Order Card Style */
+.my-orders-order {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+  padding: 16px 20px;
+  color: #333;
+  background-color: #fff7f7;
+  border: 1px solid #ffc6c6;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(255, 99, 71, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.my-orders-order:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(255, 99, 71, 0.2);
+}
+
+.order-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.my-orders-order p {
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.my-orders-order strong {
+  font-weight: 600;
+}
+
+.order-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Buttons */
+.order-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  width: 60%; /* Stretch buttons within card */
+}
+
+.order-buttons button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background-color: tomato;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex: 1;
+}
+
+.order-buttons button:hover {
+  background-color: #e0482e;
+}
+
+.order-buttons .bg-green-600 {
+  background-color: #16a34a;
+}
+
+.order-buttons .bg-green-600:hover {
+  background-color: #15803d;
+}
+
+/* Responsive tweaks for mobile */
+@media (max-width: 600px) {
+  .my-orders h2 {
+    font-size: 22px;
+  }
+
+  .my-orders-order {
+    font-size: 14px;
+    padding: 14px 16px;
+  }
+
+  .order-buttons {
+    font-size: 12px;
+    padding: 6px 10px;
+    width: 100%;
+  }
+}
