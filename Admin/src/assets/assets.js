@@ -22,4 +22,4 @@ export const assets ={
     house
 }
 
-export const url = 'http://localhost:4000'
+export const url = 'https://food-del-backend-zeta.vercel.app'
