@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 4000
 
 // ✅ CORS FIXED HERE — no slash at the end, and extra config added
 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+const allowedOrigins = ['https://food-del-frontend-ruddy.vercel.app', 'http://localhost:5174'];
 
 app.use(cors({
   origin: function (origin, callback) {
