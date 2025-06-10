@@ -9,7 +9,7 @@ const StoreContextProvider = (props) => {
   const [token, setToken] = useState('');
   const [role, setRole] = useState(null);
 
-  const url = "http://localhost:4000";
+  const url = "https://food-del-backend-zeta.vercel.app";
 
   // 🛒 Add to Cart
   const addToCart = async (itemId) => {
