@@ -10,7 +10,7 @@ function Users() {
   const [user, setUser] = useState([]);
   useEffect(function(){
     axios
-    .get("http://localhost:4000/api/user/all-users", {
+    .get("https://food-del-backend-zeta.vercel.app/api/user/all-users", {
                   // automatically send cookies
                   withCredentials: true,    
                   headers: { "Content-Type": "application/json" },
