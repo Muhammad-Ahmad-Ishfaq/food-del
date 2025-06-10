@@ -79,7 +79,7 @@ function Navbar({ setShowLogin }) {
               <img src={assets.profile_icon} alt="" />
               <ul className="nav-profile-dropdown">
                 {role === 1 && (
-                  <li onClick={() => window.open("http://localhost:5174", "_blank")}>
+                  <li onClick={() => window.open("https://food-del-admin-gray.vercel.app", "_blank")}>
                     <img src={assets.dashboard_icon} alt="" />
                     {/* <LayoutDashboard /> */}
                     <p>Dashboard</p>
