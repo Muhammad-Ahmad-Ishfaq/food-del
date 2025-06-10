@@ -10,7 +10,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Users from './pages/Users/Users'
 
 function App() {
-  const url = "http://localhost:4000"
+  const url = "https://food-del-backend-zeta.vercel.app"
   return (
     <div>
       <ToastContainer />
