@@ -10,6 +10,7 @@ function PaymentModes() {
   const [timeLeft, setTimeLeft] = useState(10);
   const [paidMessage, setPaidMessage] = useState(false);
   const [feedback, setFeedback] = useState("");
+  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -62,7 +63,6 @@ function PaymentModes() {
 
         setProcessing(false);
         setPaidMessage(true);
-
       } catch (error) {
         console.error("Payment failed", error);
         alert("Payment failed, please try again.");
@@ -77,6 +77,7 @@ function PaymentModes() {
         orderId,
         feedback,
       });
+      setFeedbackSubmitted(true);
       alert("Thanks for your feedback!");
       navigate("/myorders");
     } catch (error) {
@@ -86,13 +87,13 @@ function PaymentModes() {
   };
 
   useEffect(() => {
-    if (paidMessage) {
+    if (paidMessage && !feedbackSubmitted) {
       const timer = setTimeout(() => {
         navigate("/myorders");
       }, 10000);
       return () => clearTimeout(timer);
     }
-  }, [paidMessage]);
+  }, [paidMessage, feedbackSubmitted, navigate]);
 
   const handlePayment = () => {
     if (!paymentMethod) {
@@ -201,7 +202,9 @@ function PaymentModes() {
           </div>
         ) : paidMessage ? (
           <div className="mt-6">
-            <p className="text-green-600 font-semibold text-center mb-4">✅ Bill Paid! How was the food?</p>
+            <p className="text-green-600 font-semibold text-center mb-4">
+              ✅ Bill Paid! How was the food?
+            </p>
             <textarea
               className="w-full border rounded p-2 mb-3"
               rows="3"
@@ -215,6 +218,9 @@ function PaymentModes() {
             >
               Submit Feedback
             </button>
+            <p className="text-sm text-gray-500 text-center mt-2">
+              (Redirecting to My Orders in 10 seconds...)
+            </p>
           </div>
         ) : (
           <button
