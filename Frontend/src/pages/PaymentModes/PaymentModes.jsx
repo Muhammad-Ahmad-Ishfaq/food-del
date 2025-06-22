@@ -89,7 +89,7 @@ function PaymentModes() {
   useEffect(() => {
     if (paidMessage && !feedbackSubmitted) {
       const timer = setTimeout(() => {
-        navigate("/myorders");
+        // navigate("/myorders");
       }, 10000);
       return () => clearTimeout(timer);
     }
