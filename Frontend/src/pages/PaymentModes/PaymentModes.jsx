@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -9,6 +9,7 @@ function PaymentModes() {
   const [processing, setProcessing] = useState(false);
   const [timeLeft, setTimeLeft] = useState(10);
   const [paidMessage, setPaidMessage] = useState(false);
+  const [feedback, setFeedback] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -62,10 +63,6 @@ function PaymentModes() {
         setProcessing(false);
         setPaidMessage(true);
 
-        setTimeout(() => {
-          navigate("/myorders");
-        }, 2000);
-
       } catch (error) {
         console.error("Payment failed", error);
         alert("Payment failed, please try again.");
@@ -73,6 +70,29 @@ function PaymentModes() {
       }
     }, 10000);
   };
+
+  const submitFeedback = async () => {
+    try {
+      await axios.post("https://food-del-backend-zeta.vercel.app/api/order/feedback", {
+        orderId,
+        feedback,
+      });
+      alert("Thanks for your feedback!");
+      navigate("/myorders");
+    } catch (error) {
+      console.error("Feedback error", error);
+      alert("Failed to submit feedback. Try again.");
+    }
+  };
+
+  useEffect(() => {
+    if (paidMessage) {
+      const timer = setTimeout(() => {
+        navigate("/myorders");
+      }, 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [paidMessage]);
 
   const handlePayment = () => {
     if (!paymentMethod) {
@@ -173,14 +193,29 @@ function PaymentModes() {
           </label>
         </div>
 
-        {/* Spinner & Success Message Section */}
+        {/* Spinner / Feedback / Button */}
         {processing ? (
           <div className="flex flex-col items-center mt-6">
             <div className="animate-spin h-8 w-8 border-4 border-green-500 border-t-transparent rounded-full"></div>
             <p className="mt-2 text-sm text-gray-600">Processing... {timeLeft}s</p>
           </div>
         ) : paidMessage ? (
-          <p className="mt-6 text-green-600 font-semibold text-center">✅ Bill Paid! Redirecting...</p>
+          <div className="mt-6">
+            <p className="text-green-600 font-semibold text-center mb-4">✅ Bill Paid! How was the food?</p>
+            <textarea
+              className="w-full border rounded p-2 mb-3"
+              rows="3"
+              placeholder="Write your feedback..."
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
+            ></textarea>
+            <button
+              onClick={submitFeedback}
+              className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700"
+            >
+              Submit Feedback
+            </button>
+          </div>
         ) : (
           <button
             onClick={handlePayment}
